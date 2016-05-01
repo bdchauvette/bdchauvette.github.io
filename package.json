@@ -1,0 +1,31 @@
+{
+  "author": "Ben Chauvette <bdchauvette@gmail.com>",
+  "license": "ISC",
+  "style": {
+    "parser": "babel-eslint"
+  },
+  "scripts": {
+    "build:css": "postcss --config postcss.json",
+    "build:js": "rollup --config",
+    "build": "npm run build:css && npm run build:js",
+    "watch:css": "watch \"npm run build:css\" src/css",
+    "watch:js": "watch \"npm run build:js\" src/js",
+    "watch": "parallelshell \"npm run watch:css\" \"npm run watch:js\"",
+    "serve": "parallelshell \"live-server --compress --watch=build,index.html\" \"npm run watch\""
+  },
+  "devDependencies": {
+    "cssnano": "^3.5.2",
+    "live-server": "^1.0.0",
+    "parallelshell": "^2.0.0",
+    "postcss": "^5.0.19",
+    "postcss-cli": "^2.5.2",
+    "postcss-cssnext": "^2.5.2",
+    "postcss-normalize": "^0.2.0",
+    "rollup": "^0.26.1",
+    "rollup-plugin-buble": "^0.6.0",
+    "rollup-plugin-commonjs": "^2.2.1",
+    "rollup-plugin-node-resolve": "^1.5.0",
+    "rollup-plugin-uglify": "^0.3.1",
+    "watch": "^0.17.1"
+  }
+}
