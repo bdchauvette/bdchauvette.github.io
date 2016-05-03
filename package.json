@@ -11,7 +11,7 @@
     "watch:css": "watch \"npm run build:css\" src/css",
     "watch:js": "watch \"npm run build:js\" src/js",
     "watch": "parallelshell \"npm run watch:css\" \"npm run watch:js\"",
-    "serve": "parallelshell \"live-server --compress --watch=build,index.html\" \"npm run watch\""
+    "serve": "parallelshell \"live-server --watch=build,index.html\" \"npm run watch\""
   },
   "devDependencies": {
     "cssnano": "^3.5.2",
