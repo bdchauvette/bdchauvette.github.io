@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build:css": "postcss --config postcss.json",
+    "build:js:production": "rollup --config rollup.production.js",
     "build:js": "rollup --config",
     "build": "npm run build:css && npm run build:js",
     "watch:css": "watch \"npm run build:css\" src/css",
