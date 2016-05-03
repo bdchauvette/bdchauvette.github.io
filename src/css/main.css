@@ -95,33 +95,33 @@ strong {
 
 a {
   color: var(--color-link);
-  display: inline-block;
   text-decoration: none;
+  background-image: linear-gradient(
+    to top,
+    transparent,
+    transparent 50%,
+    color(var(--color-link) alpha(10%)) 50%,
+    color(var(--color-link) alpha(10%))
+  );
+  background-position: 0 -100%;
+  background-size: 100% 200%;
+  transition:
+    color 150ms ease-in,
+    background-position 150ms ease-in;
 }
 
-a::after {
-  content: '';
-  display: block;
-  position: relative;
-  width: 0;
-  margin-top: 1px;
-  margin-right: auto;
-  margin-left: auto;
-  height: 1px;
-  transition: width 150ms ease-in;
-}
-
-a:hover::after {
-  width: 100%;
-  background-color: var(--color-link);
-}
-
+/**
+ * For privacy reasons, Firefox won't let us use `background-image` on visited
+ * links, so we're stuck styling our visited links the same as normal links.
+ */
 a:visited {
   color: var(--color-link--visited);
 }
 
-a:visited::after {
-  background-color: var(--color-link--visited);
+a:hover {
+  color: var(--color-link);
+  background-position: 0 0;
+  box-shadow: 0 1px 0 var(--color-link);
 }
 
 .grabbable {
@@ -323,6 +323,8 @@ a:visited::after {
   height: var(--scroll-arrow-height);
   border-top: 2px solid var(--color-link);
   border-right: 2px solid var(--color-link);
+  background-image: none;
+  box-shadow: none;
   animation: blink-fade 2s infinite;
 }
 
@@ -331,6 +333,8 @@ a:visited::after {
 }
 
 .scroll-arrow:hover {
+  background-image: none;
+  box-shadow: none;
   animation: none;
 }
 
