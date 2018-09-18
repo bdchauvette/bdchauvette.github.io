@@ -1,102 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ben Chauvette &ndash; Web Developer</title>
-  <link rel="stylesheet" href="/build/css/main.css">
-  <script src="https://use.typekit.net/ffq8etg.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Ben Chauvette · Full Stack Developer</title>
+
+  <style>
+    :root {
+      --light-color: #faf5f0;
+      --dark-color: #241714;
+
+      --link-color: #009ee0;
+      --visited-link-color: #bf0d4c;
+      --focused-link-color: var(--link-color);
+
+      --fg-color: var(--dark);
+      --bg-color: var(--light);
+    }
+
+    .x-ray {
+      --text-color: #faf5f0;
+      --background-color: #241714,
+    }
+
+    html {
+      font-family: 'Source Code Pro', mono;
+
+      color: var(--fg-color);
+      background-color: var(--bg-color);
+
+      transition-property: color, background-color;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+    }
+
+    body {
+      padding: 0 3rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      background-image: linear-gradient(0deg,
+        transparent,
+        transparent 50%,
+        rgba(0, 158, 224, 0.1) 0,
+        rgba(0, 158, 224, 0.1));
+      background-position: 0 -100%;
+      background-size: 100% 200%;
+
+      transition-property: color, background-position;
+      transition-duration: 150ms;
+      transition-timing-function: ease-in;
+    }
+
+    a:visited {
+      color: var(--visited-link-color);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--focused-link-color);
+      background-position: 0 0;
+      box-shadow: 0 1px 0 var(--focused-link-color);
+    }
+
+    .masthead__title {
+      font-size: 3rem;
+      margin-bottom: 0;
+    }
+
+    .masthead__subtitle {
+      font-size: 1.5rem;
+      margin-top: 0;
+    }
+
+    .section {
+      margin-top: 3rem;
+      max-width: 35rem;
+    }
+
+    .section__heading {
+      margin-bottom: 1rem;
+    }
+
+    .project-list {
+      margin: 0;
+    }
+
+    .project-list__project-description {
+      padding: 0;
+      margin-left: 0;
+      margin-bottom: 1em;
+    }
+
+    .inline-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .inline-list li {
+      display: inline;
+    }
+
+    .inline-list li:not(:last-child)::after {
+      content: " / ";
+    }
+
+    .site-footer {
+      font-size: .8rem;
+      margin-top: 3em;
+    }
+  </style>
+
+  <!--
+    What does using the Google Fonts API mean for the privacy of my users?
+    https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users
+  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900">
 </head>
+
 <body>
-  <header class="masthead">
-    <div class="masthead__contents">
-      <div class="logo__container grabbable">
-        <div class="logo__background"></div>
-        <svg class="logo__mask" xmlns="http://www.w3.org/2000/svg" width=0 height=0 viewBox="0 0 400 400">
-          <path d="m 247.21875,0 0,200 L 400,76.39062 400,0 247.21875,0 Z m 0,200 0,200 L 400.1,400.1 400.1,323.60938 247.21875,200 Z m 0,0 L 94.4375,76.39062 l 0,247.21876 L 247.21875,200 Z"/>
-        </svg>
-      </div>
-      <h1 class="site-title">Ben Chauvette</h1>
-      <p class="site-subtitle">Web Developer</p>
-    </div>
-  </header>
+  <div id="content">
+    <header class="masthead">
+      <h1 class="masthead__title">Ben Chauvette</h1>
+      <p class="masthead__subtitle">
+        Full stack developer at <a href="https://xlfleet.com/">XL</a>
+      </p>
+    </header>
 
-  <div id="content" class="content">
-    <a class="scroll-arrow scroll-arrow--down" href="#content" title="Scroll down to the content section"></a>
-    <section class="about">
-      <h2 class="section-title">About</h2>
-      <p><strong>Howdy!</strong> I&rsquo;m Ben, a web developer based in <a href="https://www.manchesternh.gov/" title="Homepage of Manchester, New Hampshire, USA">Manchester, NH</a>.</p>
-      <p>The <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)" title="Wikipedia page about the LAMP stack">LAMP stack</a> is my bread and butter at <a href="https://altosagency.com" title="Homepage of my employer, Altos">Altos</a>, but JavaScript, <a href="https://www.goodreads.com/book/show/3143472-our-magnificent-bastard-tongue">the Magnificent Bastard Tongue</a> of the Information Age, is my language of choice for noodling around. If you haven&rsquo;t read <a href="https://www.nostarch.com/hemingway" title="Homepage for If Hemingway Wrote JavaScript">If Hemingway Wrote JavaScript</a>, I highly recommend it. (It&rsquo;s one of my favorite books!)</a></p>
-      <p>When I&rsquo;m not behind a keyboard, I enjoy traveling, playing boardgames, drinking tasty beverages, and basking in the New Golden Age of Television.</p>
-    </section>
+    <section class="section">
+      <h2 class="section__heading">Featured Projects</h2>
+      <dl class="project-list">
+        <dt class="project-list__project-title"><a href="https://github.com/icwjs/icw">@icw/icw</a></dt>
+        <dd class="project-list__project-description">Utility library for async iterables</dd>
 
-    <section class="projects">
-      <h2 class="section-title">Projects</h2>
-      <dl>
-        <dt class="project-title"><a href="http://isogram.me">isogram.me</a></dt>
-        <dd class="project-description">Create Google Analytics snippets with customized isogrammatic parameters</dd>
-        
-        <dt class="project-title"><a href="https://bdchauvette.github.io/leipzig.js">Leipzig.js</a></dt>
-        <dd class="project-description">Interlinear glossing for the browser</dd>
-        
-        <dt class="project-title"><a href="https://github.com/bdchauvette/glossolalia">Glossolalia</a></dt>
-        <dd class="project-description">The ES6 to ES5 to ES6 to ES5 transpiler you never knew you wanted</dd>
-        
-        <dt class="project-title"><a href="https://github.com/bdchauvette/pokewrap">Pokewrap</a></dt>
-        <dd class="project-description">A JavaScript wrapper for the <a href="https://pokeapi.co" title="Pokeapi homepage">Pokéapi</a></dd>
-        
-        <dt class="project-title"><a href="https://github.com/bdchauvette/markov-chains">markov-chains</a> / <a href="https://github.com/bdchauvette/markov-chains-text">markov-chains-text</a></dt>
-        <dd class="project-description">JavaScript Markov Chain generators</dd>
-        
-        <dt class="project-title"><a href="https://github.com/bdchauvette/scrabbleware">Scrabbleware</a></dt>
-        <dd class="project-description">A <a href="http://world.std.com/~reinhold/diceware.html" title="Diceware homepage">diceware</a>-like passphrase generator</dd>
+        <dt class="project-list__project-title"><a href="https://github.com/bdchauvette/markov-chains">markov-chains</a></dt>
+        <dd class="project-list__project-description">General Markov chains for JavaScript</dd>
+
+
+        <dt class="project-list__project-title"><a href="https://github.com/bdchauvette/markov-chains-text">markov-chains-text</a></dt>
+        <dd class="project-list__project-description">Fake text, powered by Markov chains</dd>
+
+        <dt class="project-list__project-title"><a href="https://bdchauvette.github.io/leipzig.js">Leipzig.js</a></dt>
+        <dd class="project-list__project-description">Interlinear glossing for the browser</dd>
+
+        <dt class="project-list__project-title"><a href="http://isogram.me/" class="project-list__project-title">isogram.me</a></dt>
+        <dd class="project-list__project-description">Create Google Analytics snippets with customized isogrammatic
+          parameters</dd>
       </dl>
     </section>
 
-    <section class="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>If you&rsquo;d like to find out more about me or my work, give me a shout on <a href="https://github.com/bdchauvette" title="My profile on github">Github</a>, <a href="https://linkedin.com/in/bdchauvette" title="My profile on LinkedIn">LinkedIn</a>, or <a href="https://reddit.com/user/bdchauvette" title="My Reddit account">Reddit</a>.</p>
+    <section class="section">
+      <h2 class="section__heading">Public Key</h2>
+
+      <pre class="public-key">+-----[RSA 4096]----+
+| .lf?^i            |
+|  .:ii .           |
+|   ::..            |
+|     ... .         |
+|     .  . .        |
+|    .    S         |
+|     .             |
+|      ^            |
+|..E    ^           |
+|^.. ^ ..           |
+|.  ^ .^.           |
++-----[A698205A]----+</pre>
+
+      <ul class="inline-list">
+        <li><a href="/keys/bdchauvette.asc" class="sc-bwzfXH flPrFk">Download Key</a></li>
+        <li><a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x43BFFEECA698205A">View on MIT PGP Public Key Server</a></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__heading">Contact</h2>
+
+      <p>If you’d like to find out more about me or my work, give me a shout on
+        <a href="https://github.com/bdchauvette">Github</a>,
+        <a href="https://linkedin.com/in/bdchauvette">LinkedIn</a>,
+        or <a href="https://reddit.com/user/bdchauvette">Reddit</a>.
+      </p>
+
       <p>You can also reach me by email at <a href="mailto:bdchauvette@gmail.com">bdchauvette@gmail.com</a>.</p>
     </section>
 
-    <footer class="page-footer">
-      <ul class="legal">
-        <li class="legal__item">&copy; 2016 Benjamin Chauvette</li>
-        <li class="legal__item">Website content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" title="Read about the Creative Commons Attribution 4.0 license">CC-BY 4.0</a></li>
+    <footer class="site-footer">
+      <ul class="inline-list">
+        <li>&copy; 2016&ndash;2018 Benjamin Chauvette</li>
+        <li>
+          <a href="/LICENSE">0BSD</a>
+        </li>
+        <li>
+          <a href="https://github.com/bdchauvette/bdchauvette.github.io">Source</a>
+        </li>
       </ul>
     </footer>
   </div>
-
-  <script src="/build/js/index.min.js"></script>
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Person",
-    "name": "Benjamin Chauvette",
-    "additionalName": "Ben",
-    "email": "mailto:bdchauvette@gmail.com",
-    "url": "https://bdchauvette.net",
-    "sameAs" : [
-      "https://github.com/bdchauvette",
-      "https://linkedin.com/in/bdchauvette"
-    ],
-    "jobTitle": "Web Developer",
-    "affiliation": {
-    	"@context": "http://schema.org",
-    	"@type": "LocalBusiness",
-    	"additionalType": "http://www.productontology.org/id/Digital_marketing",
-    	"name": "Altos",
-    	"description": "We are a digital marketing and web design company.",
-    	"logo": "https://altosagency.com/facebook/imgs/ALTOSLOGOFINAL.png",
-    	"url": "https://altosagency.com",
-    	"sameAs": [
-        "http://www.facebook.com/altos",
-      	"http://www.twitter.com/altos",
-      	"http://www.linkedin.com/company/altos"
-      ]
-  	}
-  }
-  </script>
 </body>
+
 </html>
